@@ -40,14 +40,29 @@ for i in range(n):              # цикл проходится по перво�
         if first[i] == second[j]: # сравниваем число из 1 на равенстро с числами 2 списка
             count += 1          # если есть равенство, то счетчик увеличиваем
     if count == 0:              # если счетчик остался равен 0, то выводим на 
-        print(first[i])         # печать элемент 1 массива
+        print(first[i], end=' ') # печать элемент 1 массива (в строку)
     count = 0                   # если повторы были, то обнулем счетчик и 
-                                # переходим к следующему элементу массива
-
-2 вариант решения
+print('\n') # c новой строки    # переходим к следующему элементу массива
 '''
+# 2 вариант решения
 
-list_1 = [int(input('add element: ')) for i in range(int(input('enter n = ')))]
-list_2 = [int(input('add element: ')) for i in range(int(input('enter m = ')))]
 
-print([i for i in list_1 if i not in list_2])
+# list_1 = [int(input('add element: ')) for i in range(int(input('enter n = ')))]
+# list_2 = [int(input('add element: ')) for i in range(int(input('enter m = ')))]
+
+# print([i for i in list_1 if i not in list_2])
+
+# 3 вариант решения
+
+from random import randint
+num_list_1 = [randint(1, 10) for _ in range(int(input('Введите размер первого массива: ')))]
+num_list_2 = [randint(1, 10) for _ in range(int(input('Введите размер второго массива: ')))]    
+print(*num_list_1)
+print(*num_list_2)
+
+list1_unique_nums=set(num_list_1)-set(num_list_2)
+for i in num_list_1:
+    if i in list1_unique_nums:
+        print(i, end=' ')
+
+print('\n')
